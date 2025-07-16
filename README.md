@@ -16,7 +16,6 @@ Cette application est conçue pour gérer les élèves, les cours, les notes et 
 - Accès aux notes  
 - Accès aux cours  
 - Consultation de l'emploi du temps
-- 
 - Consultation du bulletin scolaire  
 
  Administration
