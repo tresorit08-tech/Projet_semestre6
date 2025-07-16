@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="782.0" prefWidth="1021.0" style="-fx-background-color: TAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_semestre6.NotesController">
+    <children>
+        <Label layoutX="131.0" prefHeight="64.0" prefWidth="890.0" style="-fx-background-color: BROWN;" text="BIENVENUE SUR LA GESTION DES NOTES" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="45.0" />
+            </font>
+        </Label>
+        <Button fx:id="BTNRETOUR" layoutY="-1.0" mnemonicParsing="false" onAction="#RETOUR" prefHeight="66.0" prefWidth="131.0" style="-fx-background-color: GREY;" text="RETOUR" textFill="#02ff63">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
+
+        <Pane layoutX="39.0" layoutY="80.0" prefHeight="658.0" prefWidth="905.0" style="-fx-border-color: #ccc; -fx-background-color: BROWN; -fx-border-width: 1;">
+            <children>
+                <!-- TableView pour les notes -->
+                <TableView fx:id="TBLNOTE" layoutX="10.0" layoutY="14.0" prefHeight="300.0" prefWidth="880.0">
+                    <columns>
+                        <TableColumn fx:id="CLIDNOTE" text="ID" />
+                        <TableColumn fx:id="CLETUID" prefWidth="107.0" text="ÉTUDIANT" />
+                        <TableColumn fx:id="CLMATID" prefWidth="95.0" text="MATIÈRE" />
+                        <TableColumn fx:id="CLENSEIID" prefWidth="121.0" text="ENSEIGNANT" />
+                        <TableColumn fx:id="CLDATENOTE" prefWidth="118.0" text="DATE" />
+                        <TableColumn fx:id="CLVALNOTE" prefWidth="109.0" text="NOTE" />
+                        <TableColumn fx:id="CLTYPEEVALUATION" prefWidth="155.0" text="TYPE ÉVAL." />
+                        <TableColumn fx:id="CLCOEFFNOTE" prefWidth="94.0" text="COEFF." />
+                    </columns>
+                </TableView>
+
+                <!-- Champs de saisie -->
+                <Label layoutX="14.0" layoutY="340.0" text="Étudiant :">
+                    <font><Font name="System Bold" size="28.0" /></font>
+                </Label>
+                <ComboBox fx:id="ETUDIANT_ID" layoutX="10.0" layoutY="385.0" prefWidth="200.0" promptText="Choisir un étudiant" />
+
+                <Label layoutX="16.0" layoutY="441.0" text="Matière :">
+                    <font><Font name="System Bold" size="31.0" /></font>
+                </Label>
+                <ComboBox fx:id="MATIERE_ID" layoutX="14.0" layoutY="481.0" prefWidth="200.0" promptText="Choisir une matière" />
+
+                <Label layoutX="16.0" layoutY="533.0" text="Enseignant :">
+                    <font><Font name="System Bold" size="26.0" /></font>
+                </Label>
+                <ComboBox fx:id="ENSEIGNANT_ID" layoutX="14.0" layoutY="573.0" prefWidth="200.0" promptText="Choisir un enseignant" />
+
+                <Label layoutX="354.0" layoutY="339.0" text="Date de la note :">
+                    <font><Font name="System Bold" size="23.0" /></font>
+                </Label>
+                <DatePicker fx:id="DATE_NOTE" layoutX="350.0" layoutY="385.0" prefWidth="200.0" promptText="Sélectionner une date" />
+
+                <Label layoutX="351.0" layoutY="437.0" text="Valeur de la note (0-20) :">
+                    <font><Font name="System Bold" size="21.0" /></font>
+                </Label>
+                <TextField fx:id="VALEUR_NOTE" layoutX="348.0" layoutY="481.0" prefHeight="31.0" prefWidth="207.0" promptText="Ex: 15.5" />
+
+                <Label layoutX="682.0" layoutY="558.0" text="Type d'évaluation :">
+                    <font><Font name="System Bold" size="20.0" /></font>
+                </Label>
+                <TextField fx:id="TYPE_EVALUATION" layoutX="672.0" layoutY="604.0" prefWidth="200.0" promptText="Ex: Examen, Devoir, TP" />
+
+                <Label layoutX="359.0" layoutY="533.0" text="Coefficient :">
+                    <font><Font name="System Bold" size="26.0" /></font>
+                </Label>
+                <TextField fx:id="COEFF_NOTE" layoutX="348.0" layoutY="573.0" prefHeight="31.0" prefWidth="207.0" promptText="Ex: 1, 0.5, 2" />
+
+                <!-- Boutons d'action -->
+                <Button fx:id="BTNAJOUTER" layoutX="712.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleAjouter" prefHeight="54.0" prefWidth="180.0" text="AJOUTER">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font></Button>
+                <Button fx:id="BTNMODIFIER" layoutX="715.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleModifier" prefHeight="54.0" prefWidth="180.0" text="MODIFIER">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font></Button>
+                <Button fx:id="BTNSUPPRIMER" layoutX="715.0" layoutY="470.0" mnemonicParsing="false" onAction="#handleSupprimer" prefHeight="54.0" prefWidth="180.0" text="SUPPRIMER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Button>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

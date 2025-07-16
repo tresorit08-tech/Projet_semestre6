@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="762.0" prefWidth="1034.0" style="-fx-background-color: TAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_semestre6.EnseignantController">
+    <children>
+        <Label layoutX="118.0" layoutY="-3.0" prefHeight="66.0" prefWidth="916.0" style="-fx-background-color: BROWN;" text="BIENVENUE SUR LA PAGE DES ENSEIGNANTS" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="41.0" />
+            </font>
+        </Label>
+        <Button fx:id="BTNRETOUR" layoutY="-3.0" mnemonicParsing="false" onAction="#RETOUR" prefHeight="66.0" prefWidth="121.0" style="-fx-background-color: GREY;" text="RETOUR" textFill="#00ff1e">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Button>
+
+        <!-- Boutons d'action en bas -->
+        <Button fx:id="BTNAJOUTER" layoutX="21.0" layoutY="674.0" mnemonicParsing="false" onAction="#handleAjouter" prefHeight="53.0" prefWidth="204.0" text="AJOUTER">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font></Button>
+        <Button fx:id="BTNMODIFIER" layoutX="249.0" layoutY="674.0" mnemonicParsing="false" onAction="#handleModifier" prefHeight="53.0" prefWidth="204.0" text="MODIFIER">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font></Button>
+        <Button fx:id="BTNSUPPRIMER" layoutX="487.0" layoutY="674.0" mnemonicParsing="false" onAction="#handleSupprimer" prefHeight="53.0" prefWidth="204.0" text="SUPPRIMER">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font></Button>
+
+        <!-- Champ de recherche -->
+        <TextField fx:id="TXTRECHERCHER" layoutX="727.0" layoutY="674.0" onKeyReleased="#handleRechercher" prefHeight="53.0" prefWidth="181.0" promptText="Rechercher..." />
+        <Label layoutX="751.0" layoutY="643.0" text="RECHERCHER">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font></Label>
+
+        <Pane layoutX="14.0" layoutY="75.0" prefHeight="544.0" prefWidth="487.0" style="-fx-background-color: BROWN;" styleClass="F"> <!-- Style de fond ajouté pour visibilité -->
+            <children>
+                <Label layoutX="26.0" layoutY="43.0" text="NOM">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font></Label>
+                <TextField fx:id="TXTNOM" layoutX="212.0" layoutY="41.0" prefHeight="41.0" prefWidth="181.0" />
+
+                <Label layoutX="25.0" layoutY="118.0" text="PRENOM">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font></Label>
+                <TextField fx:id="TXTPRENOM" layoutX="213.0" layoutY="108.0" prefHeight="41.0" prefWidth="181.0" />
+
+                <SplitMenuButton fx:id="SPECIALITE" layoutX="15.0" layoutY="183.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="181.0" text="SPECIALITE"> <!-- Hauteur/Largeur ajustées -->
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Informatique" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Mathematiques" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Physique" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Chimie" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Biologie" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Histoire-Geographie" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Francais" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Anglais" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSpecialiteSelection" text="Sport" />
+                        <!-- Ajoutez d'autres spécialités au besoin -->
+                    </items>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+                </SplitMenuButton>
+
+                <Label layoutX="26.0" layoutY="284.0" text="TELEPHONE">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font></Label>
+                <TextField fx:id="TXTTELEPHONE" layoutX="218.0" layoutY="282.0" prefHeight="41.0" prefWidth="181.0" />
+
+                <Label layoutX="35.0" layoutY="366.0" text="EMAIL">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font></Label>
+                <TextField fx:id="TXTEMAIL" layoutX="216.0" layoutY="370.0" prefHeight="41.0" prefWidth="181.0" />
+            </children>
+        </Pane>
+
+        <!-- TableView pour les enseignants -->
+        <TableView fx:id="TBLENSEIGNANT" layoutX="517.0" layoutY="75.0" prefHeight="544.0" prefWidth="504.0" style="-fx-background-color: BROWN;">
+            <columns>
+                <TableColumn fx:id="CLID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="CLNOM" prefWidth="75.0" text="NOM" />
+                <TableColumn fx:id="CLPRENOM" prefWidth="75.0" text="PRENOM" />
+                <TableColumn fx:id="CLSPECIALITE" prefWidth="75.0" text="SPECIALITE" />
+                <TableColumn fx:id="CLTELEPHONE" prefWidth="75.0" text="TELEPHONE" />
+                <TableColumn fx:id="CLEMAIL" prefWidth="97.0" text="EMAIL" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

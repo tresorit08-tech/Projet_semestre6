@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="762.0" prefWidth="1097.0" style="-fx-background-color: TAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_semestre6.CoursController">
+    <children>
+        <Label layoutX="140.0" prefHeight="74.0" prefWidth="958.0" style="-fx-background-color: BROWN;" text="BIENVENUE SUR LA GESTION DES COURS" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="49.0" />
+            </font>
+        </Label>
+        <Button fx:id="BTNRETOUR" layoutY="-1.0" mnemonicParsing="false" onAction="#RETOUR" prefHeight="74.0" prefWidth="141.0" style="-fx-background-color: GREY;" text="RETOUR" textFill="#60ff80">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
+
+        <Pane layoutX="57.0" layoutY="92.0" prefHeight="626.0" prefWidth="1008.0" style="-fx-border-color: #ccc; -fx-border-width: 1; -fx-background-color: BROWN;">
+            <children>
+                <!-- Champs de saisie -->
+                <Label layoutX="14.0" layoutY="1.0" text="Matière :">
+                    <font><Font name="System Bold" size="22.0" /></font>
+                </Label>
+                <ComboBox fx:id="MATIERE_ID" layoutX="14.0" layoutY="35.0" prefWidth="200.0" promptText="Choisir une matière" />
+
+                <Label layoutX="14.0" layoutY="73.0" text="Enseignant :">
+                    <font><Font name="System Bold" size="21.0" /></font>
+                </Label>
+                <ComboBox fx:id="ENSEIGNANT_ID" layoutX="14.0" layoutY="106.0" prefWidth="200.0" promptText="Choisir un enseignant" />
+
+                <Label layoutX="14.0" layoutY="142.0" text="Classe :">
+                    <font><Font name="System Bold" size="26.0" /></font>
+                </Label>
+                <ComboBox fx:id="CLASSE_ID" layoutX="14.0" layoutY="177.0" prefWidth="200.0" promptText="Choisir une classe" />
+
+                <Label layoutX="15.0" layoutY="216.0" text="Date du Cours :">
+                    <font><Font name="System Bold" size="19.0" /></font>
+                </Label>
+                <DatePicker fx:id="JOUR_SEMAINE" layoutX="14.0" layoutY="249.0" prefWidth="200.0" promptText="Sélectionner une date" />
+
+                <Label layoutX="14.0" layoutY="288.0" text="Heure Début (HH:MM) :">
+                    <font><Font name="System Bold" size="18.0" /></font>
+                </Label>
+                <TextField fx:id="H_DEBUT" layoutX="14.0" layoutY="320.0" prefWidth="200.0" promptText="Ex: 08:00" />
+
+                <Label layoutX="14.0" layoutY="359.0" text="Heure Fin (HH:MM) :">
+                    <font><Font name="System Bold" size="18.0" /></font>
+                </Label>
+                <TextField fx:id="H_FIN" layoutX="14.0" layoutY="391.0" prefWidth="200.0" promptText="Ex: 10:00" />
+
+                <Label layoutX="16.0" layoutY="429.0" text="Salle :">
+                    <font><Font name="System Bold" size="20.0" /></font>
+                </Label>
+                <TextField fx:id="SALL" layoutX="14.0" layoutY="463.0" prefWidth="200.0" promptText="Ex: A101" />
+
+                <!-- Boutons d'action -->
+                <Button fx:id="BTNAJOUTER" layoutX="14.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleAjouter" prefHeight="40.0" prefWidth="90.0" text="Ajouter">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+                <Button fx:id="BTNMODIFIER" layoutX="124.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleModifier" prefHeight="40.0" prefWidth="90.0" text="Modifier">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+                <Button fx:id="BTNSUPPRIMER" layoutX="14.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSupprimer" prefHeight="40.0" prefWidth="200.0" text="Supprimer">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font></Button>
+
+                <!-- TableView pour afficher les cours -->
+                <TableView fx:id="TBLCOURS" layoutX="242.0" layoutY="1.0" prefHeight="626.0" prefWidth="765.0">
+                    <columns>
+                        <TableColumn fx:id="CLIDCOURS" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="CLMATIEREID" prefWidth="100.0" text="MATIERE" />
+                        <TableColumn fx:id="CLENSEIGNANTID" prefWidth="120.0" text="ENSEIGNANT" />
+                        <TableColumn fx:id="CLCLASSEID" prefWidth="80.0" text="CLASSE" />
+                        <TableColumn fx:id="CLJOURSEMAINE" prefWidth="100.0" text="DATE" />
+                        <TableColumn fx:id="CLHDEBUT" prefWidth="80.0" text="HEURE DEBUT" />
+                        <TableColumn fx:id="CLHFIN" prefWidth="80.0" text="HEURE FIN" />
+                        <TableColumn fx:id="CLSALL" prefWidth="80.0" text="SALLE" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

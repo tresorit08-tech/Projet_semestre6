@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?> <!-- NOUVEAU: Import pour ImageView -->
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="764.0" prefWidth="1062.0" style="-fx-background-color: TAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_semestre6.EtudiantController">
+    <children>
+        <Label layoutX="149.0" layoutY="-3.0" prefHeight="72.0" prefWidth="915.0" style="-fx-background-color: BROWN;" text="BIENVENUE SUR LA PAGE DES ETUDIANTS" textFill="WHITE">
+            <font>
+                <Font size="47.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnretour" layoutX="-1.0" layoutY="-4.0" mnemonicParsing="false" onAction="#RETOUR" prefHeight="72.0" prefWidth="150.0" style="-fx-background-color: GREY;" styleClass="COLOR" text="RETOUR" textFill="#1ab91a">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font></Button>
+
+        <TableView fx:id="tbletudiant" layoutX="-1.0" layoutY="378.0" prefHeight="386.0" prefWidth="1064.0" style="-fx-background-color: BROWN;">
+            <columns>
+                <TableColumn fx:id="clid" prefWidth="70.0" text="ID" />
+                <TableColumn fx:id="clnom" prefWidth="100.0" text="NOM" />
+                <TableColumn fx:id="clprenom" prefWidth="119.0" text="PRENOM" />
+                <TableColumn fx:id="cldatenaissance" prefWidth="125.0" text="DATE DE NAISSANCE" />
+                <TableColumn fx:id="cladresse" prefWidth="125.0" text="ADRESSE" />
+                <TableColumn fx:id="cltelephone" prefWidth="127.0" text="TELEPHONE" />
+                <TableColumn fx:id="clemail" prefWidth="113.0" text="EMAIL" />
+                <TableColumn fx:id="clclasse" prefWidth="108.0" text="CLASSE" />
+                <TableColumn fx:id="climage" prefWidth="106.0" text="CHEMIN IMAGE" />
+            </columns>
+        </TableView>
+
+        <!-- Champs de saisie -->
+        <Label layoutX="38.0" layoutY="109.0" text="NOM" />
+        <Label layoutX="26.0" layoutY="195.0" text="PRENOM" />
+        <Label layoutX="13.0" layoutY="286.0" text="DATE DE NAISSANCE" />
+        <Label layoutX="347.0" layoutY="109.0" text="ADRESSE" />
+        <Label layoutX="347.0" layoutY="195.0" text="TELEPHONE" />
+        <Label layoutX="357.0" layoutY="286.0" text="EMAIL" />
+        <Label layoutX="867.0" layoutY="180.0" text="CLASSE" />
+
+        <TextField fx:id="txtnom" layoutX="149.0" layoutY="112.0" prefHeight="31.0" prefWidth="169.0" />
+        <TextField fx:id="txtprenom" layoutX="149.0" layoutY="190.0" prefHeight="31.0" prefWidth="169.0" />
+        <DatePicker fx:id="txtdatenaissance" layoutX="168.0" layoutY="281.0" prefHeight="31.0" prefWidth="169.0" />
+        <TextField fx:id="txtadresse" layoutX="446.0" layoutY="106.0" prefHeight="31.0" prefWidth="169.0" />
+        <TextField fx:id="txttelephone" layoutX="453.0" layoutY="190.0" prefHeight="31.0" prefWidth="169.0" />
+        <TextField fx:id="txtemail" layoutX="453.0" layoutY="281.0" prefHeight="31.0" prefWidth="169.0" />
+        <ComboBox fx:id="comboxeclasse" layoutX="817.0" layoutY="221.0" prefWidth="150.0" />
+
+        <!-- Boutons d'action -->
+        <Button fx:id="btnajouter" layoutX="643.0" layoutY="81.0" mnemonicParsing="false" onAction="#handleAjouter" prefHeight="65.0" prefWidth="150.0" text="AJOUTER">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font></Button>
+        <Button fx:id="btnmodifier" layoutX="643.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleModifier" prefHeight="65.0" prefWidth="150.0" text="MODIFIER">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font></Button>
+        <Button fx:id="btnsupprimer" layoutX="817.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleSupprimer" prefHeight="65.0" prefWidth="150.0" text="SUPPRIMER">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font></Button>
+
+        <!-- Recherche -->
+        <Label layoutX="852.0" layoutY="265.0" text="RECHERCHE" />
+        <TextField fx:id="txtrecherche" layoutX="825.0" layoutY="292.0" onAction="#handleRecherche" onKeyReleased="#handleRecherche" prefHeight="31.0" prefWidth="150.0" />
+
+        <!-- Gestion d'image -->
+        <Button fx:id="btnimage" layoutX="643.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleImageButton" prefHeight="72.0" prefWidth="150.0" text="CHOISIR IMAGE">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font></Button>
+
+        <!-- NOUVEAU: ImageView pour afficher l'image de l'étudiant -->
+        <!-- J'ai placé cet ImageView à côté du bouton "CHOISIR IMAGE" pour qu'il soit visible. -->
+        <ImageView fx:id="imageViewEtudiant" fitHeight="120.0" fitWidth="120.0" layoutX="900.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>

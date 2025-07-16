@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- Définition de la page de délibération, liée au DeliberationController.java -->
+
+<AnchorPane prefHeight="729.0" prefWidth="968.0" style="-fx-background-color: TAN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projet_semestre6.DeliberationController">
+    <children>
+        <!-- Titre de la page -->
+        <Label layoutX="128.0" layoutY="2.0" prefHeight="66.0" prefWidth="705.0" style="-fx-background-color: BROWN;" text="GESTION DES DÉLIBÉRATIONS" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="48.0" />
+            </font>
+        </Label>
+        <!-- Bouton de retour à la page principale -->
+        <Button fx:id="BTNRETOUR" layoutY="0.0" mnemonicParsing="false" onAction="#handleRetour" prefHeight="70.0" prefWidth="130.0" style="-fx-background-color: GREY;" text="RETOUR" textFill="#61ff59">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
+
+        <!-- NOUVEAU: Bouton pour accéder au bulletin - DÉCOMMENTÉ ET LIÉ -->
+        <!-- J'ai ajusté la position (layoutX) pour qu'il soit visible à droite du titre -->
+        <Button fx:id="btnbulletin" layoutX="832.0" mnemonicParsing="false" onAction="#bulletin" prefHeight="70.0" prefWidth="136.0" style="-fx-background-color: TAN;" text="BULLETIN" textFill="#008d1c">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font></Button>
+
+        <!-- Section pour les sélections d'étudiant ou de classe et le bouton de calcul -->
+        <VBox layoutX="5.0" layoutY="90.0" prefHeight="222.0" prefWidth="270.0" spacing="10.0" style="-fx-background-color: BROWN;">
+            <children>
+                <Label text="Sélectionner un étudiant :">
+                    <font><Font name="System Bold" size="22.0" /></font>
+                </Label>
+                <!-- ComboBox pour la sélection d'un étudiant -->
+                <ComboBox fx:id="CBETUDIANT" prefWidth="200.0" promptText="Choisir un étudiant" />
+                <Label text="Ou sélectionner une classe :">
+                    <font><Font name="System Bold" size="20.0" /></font>
+                </Label>
+                <!-- ComboBox pour la sélection d'une classe -->
+                <ComboBox fx:id="CBCLASSE" prefWidth="200.0" promptText="Choisir une classe" />
+                <!-- Bouton pour déclencher le calcul des résultats -->
+                <Button fx:id="BTNCALCULER" mnemonicParsing="false" onAction="#handleCalculer" prefHeight="40.0" prefWidth="200.0" text="CALCULER LES RÉSULTATS" />
+            </children>
+        </VBox>
+
+        <!-- Section du tableau pour afficher les résultats de délibération -->
+        <TableView fx:id="TBLDELIBERATION" layoutX="280.0" layoutY="90.0" prefHeight="625.0" prefWidth="679.0" style="-fx-background-color: BROWN;">
+            <columns>
+                <!-- Colonne pour le nom de la matière -->
+                <TableColumn fx:id="CLMATIERE" prefWidth="180.0" text="MATIÈRE" />
+                <!-- Colonne pour la moyenne de la matière -->
+                <TableColumn fx:id="CLMOYENNE" prefWidth="100.0" text="MOYENNE" />
+                <!-- Colonne pour le coefficient global de la matière -->
+                <TableColumn fx:id="CLCOEFFICIENT" prefWidth="100.0" text="COEFF. MATIÈRE" />
+                <!-- Colonne pour la mention attribuée -->
+                <TableColumn fx:id="CLMENTION" prefWidth="218.0" text="MENTION" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
